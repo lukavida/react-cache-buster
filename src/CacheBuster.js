@@ -16,6 +16,7 @@ function CacheBuster({
   currentVersion,
   isEnabled = false,
   isVerboseMode = false,
+  isChildrenWhileLoading = false,
   loadingComponent = null,
   metaFileDirectory = null,
   reloadOnDowngrade = false,
@@ -102,7 +103,11 @@ function CacheBuster({
     return children;
   } else {
     if (cacheStatus.loading) {
-      return loadingComponent;
+      if (isChildrenWhileLoading) {
+        return children;
+      } else {
+        return loadingComponent;
+      }
     }
 
     if (!cacheStatus.loading && !cacheStatus.isLatestVersion) {
@@ -129,6 +134,7 @@ CacheBuster.propTypes = {
   currentVersion: PropTypes.string.isRequired,
   isEnabled: PropTypes.bool.isRequired,
   isVerboseMode: PropTypes.bool,
+  isChildrenWhileLoading: PropTypes.bool.isRequired,
   loadingComponent: PropTypes.element,
   metaFileDirectory: PropTypes.string,
   onCacheClear: PropTypes.func
