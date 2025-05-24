@@ -130,7 +130,7 @@ CacheBuster.propTypes = {
   currentVersion: PropTypes.string.isRequired,
   isEnabled: PropTypes.bool.isRequired,
   isVerboseMode: PropTypes.bool,
-  isChildrenWhileLoading: PropTypes.bool.isRequired,
+  isChildrenWhileLoading: PropTypes.bool,
   loadingComponent: PropTypes.element,
   metaFileDirectory: PropTypes.string,
   onCacheClear: PropTypes.func
