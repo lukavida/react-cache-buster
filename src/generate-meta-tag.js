@@ -2,8 +2,7 @@ const { writeFile } = require('fs');
 
 const path = require('path');
 const packageJson = require(`${process.cwd()}/package.json`);
-const publicPath = process.argv[2];
-const metaJson = path.join(process.cwd(), publicPath || 'public', 'meta.json');
+const metaJson = path.join(process.cwd(), 'public', 'meta.json');
 
 const appVersion = packageJson.version;
 
