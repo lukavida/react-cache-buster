@@ -102,12 +102,8 @@ function CacheBuster({
   if (!isEnabled) {
     return children;
   } else {
-    if (cacheStatus.loading) {
-      if (isChildrenWhileLoading) {
-        return children;
-      } else {
-        return loadingComponent;
-      }
+    if (cacheStatus.loading && !isChildrenWhileLoading) {
+      return loadingComponent;
     }
 
     if (!cacheStatus.loading && !cacheStatus.isLatestVersion) {
